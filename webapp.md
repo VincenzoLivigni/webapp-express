@@ -33,16 +33,16 @@
 <br>
 <br>
 
-## 4 - Prepariamo una rotta index per ottenere la lista dei film - 
+## 4 - Prepariamo una rotta index per ottenere la lista dei film - ✔️
 
-   ### 4.1 - creare cartella `routes` -
-   ### 4.2 - creare file `movies.js` -
-   ### 4.3 - creare controller
-   ### 4.4 - collegare alle routes
-   ### 4.4 - importa il database -
-   ### 4.5 - creare la rotta per visualizzare tutti i film (index) -
-   ### 4.6 - importa le `routes` in `server.js` -
-   ### 4.7 - aggiungere middleware per il parsing - 
+   ### 4.1 - creare cartella `routes` - ✅
+   ### 4.2 - creare file `movies.js` - ✅
+   ### 4.3 - creare controller - ✅
+   ### 4.4 - collegare alle routes - ✅
+   ### 4.4 - importa il database - ✅
+   ### 4.5 - creare la rotta per visualizzare tutti i film (index) - ✅
+   ### 4.6 - importa le `routes` in `server.js` - ✅
+   ### 4.7 - aggiungere middleware per il parsing - ✅
 
 <br>
 <br>
@@ -57,7 +57,7 @@
 Bonus:
 ## 1 - Inserire le immagini nel progetto express - 
 ## 2 - Inserire i dati di connessione al database come variabili d’ambiente - 
-## 3 - Inserire le vostre API in controller - 
-## 4 - Inserire le vostre rotte in un router - 
+## 3 - Inserire le vostre API in controller - ✔️
+## 4 - Inserire le vostre rotte in un router - ✔️
 ## 5 - Inserire un middleware per le rotte inesistenti - 
 ## 6 - Inserire un middleware per la gestione errori - 
