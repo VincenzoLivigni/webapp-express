@@ -15,6 +15,21 @@ app.get("/", (req, res) => {
 
 app.use("/movies", moviesRouter)
 
+
+app.use((req, res) => {
+    res.status(404).json({
+        error: "404",
+        message: "endpoint not found"
+    })
+})
+
+app.use((err, req, res, next) => {
+    res.status(500).json({
+        error: "internal server error",
+        message: err.message
+    })
+})
+
 app.listen(port, () => {
     console.log(`server attivo su http://localhost:${port}`)
 })
