@@ -20,6 +20,7 @@ const show = (req, res) => {
 
     const id = Number(req.params.id)
     const sql = "SELECT * FROM movies WHERE id = ?"
+    const sqlReviews = "SELECT reviews.* FROM movies JOIN reviews ON reviews.movie_id = movies.id WHERE reviews.movie_id = ?"
 
     connection.query(sql, [id], (err, results) => {
         if (err) {
@@ -35,9 +36,30 @@ const show = (req, res) => {
                 error: true,
                 message: "movie not found"
             })
-        res.json(results[0])
+        const movie = results[0]
+
+        connection.query(sqlReviews, [id], (reviewsErr, reviewsResults) => {
+            if (reviewsErr) {
+                return res.status(500).json({
+                    error: true,
+                    message: reviewsErr.message
+                })
+            }
+
+            console.log(reviewsResults)
+
+            if (reviewsResults.length === 0)
+                return res.status(404).json({
+                    error: true,
+                    message: "review not found"
+                })
+            movie.reviews = reviewsResults
+            res.json(movie)
+        })
     })
 }
+
+
 
 
 const store = (req, res) => {

@@ -49,7 +49,7 @@
 
 ## 5 - Prepariamo una rotta show per ottenere i dettagli di un singolo film e le sue recensioni - 
    
-   ### 5.1 - creare la rotta per visualizzare un singolo film (show) -
+   ### 5.1 - creare la rotta per visualizzare un singolo film (show) - ✅
 
 <br>
 <br>
