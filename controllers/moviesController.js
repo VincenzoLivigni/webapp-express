@@ -60,10 +60,43 @@ const show = (req, res) => {
 }
 
 
+const storeReview = (req, res) => {
+    const { id } = req.params
+    const { name, vote, text } = req.body
 
+    if (!name || !vote || !text) {
+        return res.status(400).json({
+            err: true,
+            message: "missing data"
+        })
+    }
 
-const store = (req, res) => {
-    res.send("store a new movie")
+    const sql = "INSERT INTO reviews (movie_id, name, vote, text) VALUES (?, ?, ?, ?)"
+
+    if (vote < 1 || vote > 5) {
+        return res.status(400).json({
+            error: true,
+            message: "the vote must be between the numbers 1 and 5"
+        })
+    }
+
+    connection.query(sql, [id, name, vote, text], (err, result) => {
+        if (err) {
+            return res.status(500).json({
+                error: true,
+                message: "query failed"
+            })
+        }
+
+        res.status(201).json({
+            message: "review added",
+            reviewId: result.insertId,
+            movie_id: id,
+            name,
+            vote,
+            text
+        })
+    })
 }
 
 
@@ -85,7 +118,7 @@ const destroy = (req, res) => {
 module.exports = {
     index,
     show,
-    store,
+    storeReview,
     update,
     modify,
     destroy
